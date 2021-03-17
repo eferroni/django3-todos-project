@@ -1,0 +1,42 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <h1>Sign Up</h1>
+  </div>
+</div>
+
+<div class="row justify-content-center mt-5">
+  <div class="col-md-5">
+    <form class="" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" placeholder="Enter Username">
+        <small id="usernameHelp" class="form-text text-muted">Your username must be unique. We'll let you know if someone has taken it already.</small>
+      </div>
+      <div class="form-group">
+        <label for="password1">Password</label>
+        <input type="password" class="form-control" id="password1" name="password1" aria-describedby="password1Help" placeholder="Password">
+        <small id="password1Help" class="form-text text-muted">Your password must contain at least 8 characters.</small>
+      </div>
+      <div class="form-group">
+        <label for="password2">Password Confirmation</label>
+        <input type="password" class="form-control" id="password2" name="password2" aria-describedby="password2Help" placeholder="Password">
+        <small id="password2Help" class="form-text text-muted">Enter the same password as before, for verification.</small>
+      </div>
+      {% if error %}
+        <div class="alert alert-danger" role="alert">
+          {{ error }}
+        </div>
+      {% endif %}
+      <button type="submit" name="button" class="btn btn-primary">Sign Up</button>
+    </form>
+    <hr>
+  </div>
+</div>
+
+{% endblock %}
